@@ -1,11 +1,10 @@
 PropDefinitions:
-    Req:
 # study props
   clinical_study_id:
     Desc:
     Src:
     Type: string
-    Req:
+    Req: null
   clinical_study_designation:
     Desc:
     Src:
@@ -27,18 +26,17 @@ PropDefinitions:
     Src: rxarm
     Type: string
     Req: true
-  # rxarm
 # cohort props
   cohort_description:
     Desc:
     Src:
     Type: string
-    Req:
+    Req: null
   cohort_dose:
     Desc:
     Src:
     Type: string
-    Req:
+    Req: null
 # case props
   case_id:
     Desc: globally unique ID by which the system can unambiguously identify and display a specific patient even across studies/trials.
@@ -50,7 +48,6 @@ PropDefinitions:
     Src: blindid
     Type: integer
     Req: true
-  # blindid
   included_in_analysis:
     Desc: Indicator variable of whether the patient was in the primary analysis set for the publication
     Src: InAnalysis
@@ -58,26 +55,22 @@ PropDefinitions:
     - FALSE
     - TRUE
     Req: true
-  # InAnalysis
   on_study_crf_submitted:
      Desc: Indicator variable of whether the TAILORx On-Study case report form (baseline data) was submitted
      Src: osind
      Type: boolean
      Req: true
-  # osind
   ineligible:
     Desc: Indicator for patients excluded because they were not eligible
     Src: inel
     Type: boolean
     Req: true
-  # inel
 # demographic props
   patient_age_at_enrollment:
     Desc: Age at registration on PACT1
     Src: age
     Type: integer
     Req: true
-  # age
   menopausal_status:
     Desc: Menopausal status at registration on PACT1 (reported on On-Study CRF)
     Src: meno
@@ -85,26 +78,22 @@ PropDefinitions:
     - Pre
     - Post
     Req: true
-  # meno
   race:
     Desc: Patient’s race
     Src: race
     Type: string
     Req: true
-  # race
   ethnicity:
-    Desc:Patient’s ethnicity 
+    Desc: Patient’s ethnicity 
     Src: ethnicity
     Type: string
     Req: true
-  # ethnicity
 # diagnosis props:
   recurrence_score:
     Desc: Recurrence Score
     Src: RS
     Type: integer
     Req: true
-  # RS
   tumor_size:
     Desc: Maximum diameter of the primary tumor
     Src: TumorSize
@@ -112,8 +101,7 @@ PropDefinitions:
       units:
         - mm
       value_type: number
-    Req:
-  # TumorSize
+    Req: null
   tumor_size_group:
     Desc: Tumor size category
     Src: TumorSizeGp
@@ -125,7 +113,6 @@ PropDefinitions:
     - >4
     - NA
     Req: true
-  # TumorSizeGp
   histological_grade:
     Desc: Histologic Grade (as reported by local site)
     Src: Grade
@@ -135,7 +122,6 @@ PropDefinitions:
     - High
     - NA
     Req: true
-  # Grade
   nuclear_grade:
     Desc: Nuclear Grade (as reported by local site) [not used in publication]
     Src: NucGrade
@@ -145,7 +131,6 @@ PropDefinitions:
     - High
     - NA
     Req: true
-  # NucGrade
   estrogen_receptor_status:
     Desc: Estrogen Receptor Status
     Src: NucGrade
@@ -154,7 +139,6 @@ PropDefinitions:
     - Pos
     - NA
     Req: true
-  # NucGrade
   progesterone_receptor_status:
     Desc: Progesterone Receptor Status
     Src: PRStatus
@@ -163,46 +147,39 @@ PropDefinitions:
     - Pos
     - NA
     Req: true
-  # PRStatus
 # stratification props
   tumor_size_stratification:
     Desc: Tumor Size Stratification (reported during registration)
     Src: StratTumorSize
     Type: string
     Req: true
-  # StratTumorSize
   menopausal_status_stratification:
     Desc: Menopausal Status Stratification (reported during registration)
     Src: StratMeno
     Type: string
     Req: true
-  # StratMeno
   planned_chemotherapy_stratification:
     Desc: Type of Planned Chemo Stratification (reported during  registration)
     Src: StratPlannedChemo
     Type: string
     Req: true
-  # StratPlannedChemo
   planned_radiotherapy:
     Desc: Type of Planned RT (reported during registration)
     Src: StratPlannedRT
     Type: string
     Req: true
-  # StratPlannedRT
   grouped_recurrence_score:
     Desc: Grouped RS (derived from RS)Used as a stratification factor for randomizations during the later portion of the study, and included as a stratification factor
     for all randomized cases for stratified analyses in the paper
     Src: RSgp
     Type: string
     Req: true
-  # RSgp
   combined_stratification_variable:
     Desc: Combined stratification variable used for stratified comparison of randomized arms
     # appears to be some sort of "combined risk score" that combines RS itself with risk contributions from each of the other stratification factors
     Src: Strat
     Type: string
     Req: true
-  # Strat
   # unclear as to which of these various stratification factors are used only to plan therapy, vs. used only during analysis, vs. used in both ways 
 # treatment props
   primary_surgical_procedure:
@@ -213,13 +190,11 @@ PropDefinitions:
     - Tx
     - NA
     Req: true
-  # PrimSurg
   received_chemotherapy:
     Desc: Indicator of whether patients were treated with chemotherapy (cases with no follow-up data are coded as 0)
     Src: RecChemo
     Type: boolean
     Req: true
-  # RecChemo
   type_of_chemotherapy_regimen_received:
     Desc: Chemotherapy regimen given (grouped as reported in manuscript)
     Src: ChemRegGp
@@ -230,14 +205,13 @@ PropDefinitions:
     - 4TC and variations
     - 5Other or Not Specified
     - 6None
+    # this is exactly how the values appear in the example data
     Req: true
-  # ChemRegGp
   specific_chemotherapy_regimen_received:
     Desc: Chemotherapy regimen given (more granular classification than previous variable)
     Src: ChemReg
     Type: string
     Req: true
-  # ChemReg
   type_of_endocrine_therapy_received:
     Desc: Type of endocrine therapy
     Src: TypeEndocrine
@@ -250,107 +224,89 @@ PropDefinitions:
      - Other
      - None
     Req: true
-  # TypeEndocrine
   time_to_first_endocrine_therapy:
     Desc: Days from registration to first endocrine therapy (see notes)
     Src: ttfET
     Type: string
     Req: true
-  # ttfET
   time_to_last_endocrine_therapy:
     Desc: Days from registration to last endocrine therapy (see notes)
     Src: ttlET
     Type: string
     Req: true
-  # ttlET
   duration_of_endocrine_therapy:
     Desc: Duration of endocrine therapy (ttlET – ttfET)
     Src: durET
     Type: string
     Req: true
-  # durET
   endocrine_therapy_discontinued:
     Desc:Indicator of whether all endocrine therapy had been stopped (used as event indicator for duration analysis) 
     Src: endET
     Type: string
     Req: true
-  # endET
 # survival props
   disease_free_survival_interval:
     Desc: Disease-free survival: Days from registration to first dfs event or last disease evaluation
     Src: dfs
     Type: integer
     Req: true
-  # dfs
   disease_free_event_indicator:
     Desc: DFS event indicator
     Src: dfsind
     Type: string
     Req: true
-  # dfsind
   distant_recurrence_free_interval:
     Desc: Distant recurrence-free interval: Days from registration to first distant recurrence or last disease evaluation
     Src: drfi
     Type: integer
     Req: true
-  # drfi
   distant_recurrence_indicator:
     Desc: Distant recurrence indicator
     Src: drfiind
     Type: string
     Req: true
-  # drfiind
   recurrence_free_interval:
     Desc: Recurrence-free interval: days from registration to first recurrence or to last disease evaluation
     Src: rfi
     Type: integer
     Req: true
-  # rfi
   recurrence_indicator:
     Desc: Recurrence indicator
     Src: rfiind
     Type: string
     Req: true
-  # rfiind
   length_of_survival:
     Desc: Days from registration to death or date last known alive
     Src: rfiind
     Type: integer
     Req: true
-  # rfiind
   survival_status:
     Desc: Survival status
     Src: survstat
     Type: string
     Req: true
-  # survstat
   consent_withdrawn:
     Desc: Indicator of whether patient withdrew consent for further follow-up
     Src: WithdrawConsent
     Type: boolean
     Req: true
-  # WithdrawConsent
   lost_to_follow_up:
     Desc: Indicator of whether the patient is lost to follow-up
     Src: LostFU
     Type: string
     Req: true
-  # LostFU
   type_of_first_dfs_event:
     Desc: Type of first DFS event
     Src: typefdfs
     Type: string
     Req: true
-  # typefdfs
   type_of_first_recurrence:
-    Desc: Type of first recurrence 1 =
+    Desc: Type of first recurrence
     Src: typefrec
     Type: string
     Req: true
-  # typefrec
   cause_of_death:
     Desc: Cause of death
     Src: cause
     Type: string
     Req: true
-  # cause
