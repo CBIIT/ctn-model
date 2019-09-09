@@ -6,6 +6,10 @@
 
 
 Nodes:
+  program:
+    Props:
+      - name
+      - short_name
   study:
     Props:
       - clinical_study_id
@@ -36,7 +40,7 @@ Nodes:
     Props:
       - patient_age_at_enrollment
       # age
-      menopausal_status
+      - menopausal_status
       # meno
       - race
       # race
@@ -68,7 +72,7 @@ Nodes:
       # StratPlannedChemo
       - planned_radiotherapy
       # StratPlannedRT
-      grouped_recurrence_score
+      - grouped_recurrence_score
       # RSgp
       - combined_stratification_variable
       # Strat
@@ -103,7 +107,7 @@ Nodes:
       # drfi
       - distant_recurrence_indicator
       # drfiind
-      recurrence_free_interval
+      - recurrence_free_interval
       # rfi
       - recurrence_indicator
       # rfiind
@@ -121,7 +125,7 @@ Nodes:
       # typefrec
       - cause_of_death
       # cause
-  Relationships:
+Relationships:
   member_of:
     Mul: many_to_one
     Ends:
@@ -135,14 +139,14 @@ Nodes:
         Dst: program
       - Src: case
         Dst: study
-      # to accomodate Cases not maaped to any Cohrt, either due to error or by design 
+        # to accomodate Cases not maaped to any Cohrt, either due to error or by design 
       - Src: cohort
         Dst: study
-      # to accomodate a Study having Cases that should be grouped into Cohorts, but where Study Arms don't apply
+        # to accomodate a Study having Cases that should be grouped into Cohorts, but where Study Arms don't apply
       - Src: case
         Dst: study_arm
         Mul: one_to_one
-      # to accommodate a Study having Cases that should be grouped into Study Arms, but where Cohorts don't apply        
+        # to accommodate a Study having Cases that should be grouped into Study Arms, but where Cohorts don't apply        
     Props: null
   of_case:
     Mul: many_to_one
@@ -161,10 +165,5 @@ Nodes:
         Mul: one_to_one
       - Src: survival
         Dst: case
-      - Mul: one_to_one
+        Mul: one_to_one
     Props: null
- 
-NativeSchemaIncludes:
-  - _definitions.yaml
-  - _terms.yaml
-

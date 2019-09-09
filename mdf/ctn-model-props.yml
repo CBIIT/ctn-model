@@ -33,8 +33,8 @@ PropDefinitions:
     Type: string
     Req: null
   cohort_dose:
-    Desc:
-    Src:
+    Desc: null
+    Src: null
     Type: string
     Req: null
 # case props
@@ -169,8 +169,8 @@ PropDefinitions:
     Type: string
     Req: true
   grouped_recurrence_score:
-    Desc: Grouped RS (derived from RS)Used as a stratification factor for randomizations during the later portion of the study, and included as a stratification factor
-    for all randomized cases for stratified analyses in the paper
+    Desc: |
+      Grouped RS (derived from RS)Used as a stratification factor for randomizations during the later portion of the study, and included as a stratification factorfor all randomized cases for stratified analyses in the paper
     Src: RSgp
     Type: string
     Req: true
@@ -240,13 +240,15 @@ PropDefinitions:
     Type: string
     Req: true
   endocrine_therapy_discontinued:
-    Desc:Indicator of whether all endocrine therapy had been stopped (used as event indicator for duration analysis) 
+    Desc: |
+      Indicator of whether all endocrine therapy had been stopped (used as event indicator for duration analysis) 
     Src: endET
     Type: string
     Req: true
 # survival props
   disease_free_survival_interval:
-    Desc: Disease-free survival: Days from registration to first dfs event or last disease evaluation
+    Desc: |
+      Disease-free survival: Days from registration to first dfs event or last disease evaluation
     Src: dfs
     Type: integer
     Req: true
@@ -256,7 +258,8 @@ PropDefinitions:
     Type: string
     Req: true
   distant_recurrence_free_interval:
-    Desc: Distant recurrence-free interval: Days from registration to first distant recurrence or last disease evaluation
+    Desc: |
+      Distant recurrence-free interval: Days from registration to first distant recurrence or last disease evaluation
     Src: drfi
     Type: integer
     Req: true
@@ -266,7 +269,8 @@ PropDefinitions:
     Type: string
     Req: true
   recurrence_free_interval:
-    Desc: Recurrence-free interval: days from registration to first recurrence or to last disease evaluation
+    Desc: |
+      Recurrence-free interval: days from registration to first recurrence or to last disease evaluation
     Src: rfi
     Type: integer
     Req: true
@@ -310,3 +314,16 @@ PropDefinitions:
     Src: cause
     Type: string
     Req: true
+  distant_recurrence_interval:
+    Desc: |
+      ?
+    Src: |
+      ?
+    Type: TBD
+  name:
+    Desc: Name of relevant item
+    Type: string
+  short_name:
+    Desc: Abbreviated name of relevant item
+    Type: string
+  
