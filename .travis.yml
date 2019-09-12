@@ -16,7 +16,6 @@ branches:
 before_install:
   - docker pull maj1/icdc:icdc-model-tool-app
 install:
-  - sudo apt-get install -y sed 
   - pip install -r val/reqs.txt
 script:
   - pushd val
@@ -25,8 +24,8 @@ script:
   - pushd mdf
   # run prebuilt model-tool
   - docker run --rm -it -v "$PWD":/opns/wrk  maj1/icdc:icdc-model-tool-app -g wrk/update-model.svg wrk/ctn-model.yml wrk/ctn-model-props.yml
-  - sed -ie '1,6d'
   - cp icdc-model.yml icdc-model-props.yml ../docs/mdf
+  - sed -ie '1,6d' update-model.svg
   - cp update-model.svg ../docs/model-desc/ctn-model.svg
   - rm -f update-model.svg
   - popd
