@@ -1,0 +1,169 @@
+# CTN model nodes and relns
+# Title case names are "reserved" (meaningful to the parser)
+# Lower case names are labels for the entities
+
+# lesions - extension
+
+
+Nodes:
+  program:
+    Props:
+      - name
+      - short_name
+  study:
+    Props:
+      - clinical_study_id
+      - clinical_study_designation
+      - clinical_study_name
+      - clinical_study_description
+  study_arm:
+    Props:
+      - arm
+      # rxarm
+  cohort:
+    Props:
+      - cohort_description
+      - cohort_dose
+  case:
+    Props:
+      - case_id
+      # concatenation of patient_id and clinical_study_designation as per ICDC?
+      - patient_id
+      # blindid
+      - included_in_analysis
+      # InAnalysis
+      - on_study_crf_submitted
+      #osind
+      - ineligible
+      # inel
+  demographic:
+    Props:
+      - patient_age_at_enrollment
+      # age
+      - menopausal_status
+      # meno
+      - race
+      # race
+      - ethnicity
+      # ethnicity
+  diagnosis:
+    Props:
+      - recurrence_score
+      # RS
+      - tumor_size
+      # TumorSize
+      - tumor_size_group
+      # TumorSizeGp
+      - histological_grade
+      # Grade
+      - nuclear_grade
+      # NucGrade
+      - estrogen_receptor_status
+      # ERStatus
+      - progesterone_receptor_status
+      # PRStatus
+  stratification:
+    Props:
+      - tumor_size_stratification
+      # StratTumorSize
+      - menopausal_status_stratification
+      # StratMeno
+      - planned_chemotherapy_stratification
+      # StratPlannedChemo
+      - planned_radiotherapy
+      # StratPlannedRT
+      - grouped_recurrence_score
+      # RSgp
+      - combined_stratification_variable
+      # Strat
+      # unclear as to which of these various stratification factors are used only to plan therapy, vs. used only during analysis, vs. used in both ways 
+  treatment:
+    Props:
+      - primary_surgical_procedure
+      # PrimSurg
+      - received_chemotherapy
+      # RecChemo
+      - type_of_chemotherapy_regimen_received
+      # ChemRegGp
+      - specific_chemotherapy_regimen_received
+      # ChemReg
+      - type_of_endocrine_therapy_received
+      # TypeEndocrine
+      - time_to_first_endocrine_therapy
+      # ttfET
+      - time_to_last_endocrine_therapy
+      # ttlET
+      - duration_of_endocrine_therapy
+      # durET
+      - endocrine_therapy_discontinued
+      # endET
+  survival:
+    Props:
+      - disease_free_survival_interval
+      # dfs
+      - disease_free_event_indicator
+      # dfsind
+      - distant_recurrence_interval
+      # drfi
+      - distant_recurrence_indicator
+      # drfiind
+      - recurrence_free_interval
+      # rfi
+      - recurrence_indicator
+      # rfiind
+      - length_of_survival
+      # survtime
+      - survival_status
+      # survstat
+      - consent_withdrawn
+      # WithdrawConsent
+      - lost_to_follow_up
+      # LostFU
+      - type_of_first_dfs_event
+      # typefdfs
+      - type_of_first_recurrence
+      # typefrec
+      - cause_of_death
+      # cause
+Relationships:
+  member_of:
+    Mul: many_to_one
+    Ends:
+      - Src: case
+        Dst: cohort
+      - Src: cohort
+        Dst: study_arm
+      - Src: study_arm
+        Dst: study
+      - Src: study
+        Dst: program
+      - Src: case
+        Dst: study
+        # to accomodate Cases not maaped to any Cohrt, either due to error or by design 
+      - Src: cohort
+        Dst: study
+        # to accomodate a Study having Cases that should be grouped into Cohorts, but where Study Arms don't apply
+      - Src: case
+        Dst: study_arm
+        Mul: one_to_one
+        # to accommodate a Study having Cases that should be grouped into Study Arms, but where Cohorts don't apply        
+    Props: null
+  of_case:
+    Mul: many_to_one
+    Ends:
+      - Src: demographic
+        Dst: case
+        Mul: one_to_one
+      - Src: diagnosis
+        Dst: case
+        Mul: one_to_one
+      - Src: stratification
+        Dst: case
+        Mul: one_to_one
+      - Src: treatment
+        Dst: case
+        Mul: one_to_one
+      - Src: survival
+        Dst: case
+        Mul: one_to_one
+    Props: null
