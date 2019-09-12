@@ -1,23 +1,12 @@
 PropDefinitions:
 # study props
   clinical_study_id:
-    Desc:
-    Src:
     Type: string
-    Req: null
   clinical_study_designation:
-    Desc:
-    Src:
     Type: string
-    Req: true
   clinical_study_name:
-    Desc:
-    Src:
     Type: string
-    Req: true
   clinical_study_description:
-    Desc:
-    Src:
     Type: string
     Req: true
 # study_arm props
@@ -28,15 +17,9 @@ PropDefinitions:
     Req: true
 # cohort props
   cohort_description:
-    Desc:
-    Src:
     Type: string
-    Req: null
   cohort_dose:
-    Desc: null
-    Src: null
     Type: string
-    Req: null
 # case props
   case_id:
     Desc: globally unique ID by which the system can unambiguously identify and display a specific patient even across studies/trials.
@@ -51,9 +34,7 @@ PropDefinitions:
   included_in_analysis:
     Desc: Indicator variable of whether the patient was in the primary analysis set for the publication
     Src: InAnalysis
-    Type:
-    - FALSE
-    - TRUE
+    Type: boolean
     Req: true
   on_study_crf_submitted:
      Desc: Indicator variable of whether the TAILORx On-Study case report form (baseline data) was submitted
@@ -75,8 +56,8 @@ PropDefinitions:
     Desc: Menopausal status at registration on PACT1 (reported on On-Study CRF)
     Src: meno
     Type:
-    - Pre
-    - Post
+      - Pre
+      - Post
     Req: true
   race:
     Desc: Patient’s race
@@ -101,51 +82,50 @@ PropDefinitions:
       units:
         - mm
       value_type: number
-    Req: null
   tumor_size_group:
     Desc: Tumor size category
     Src: TumorSizeGp
     Type:
-    - <=1
-    - (1,2]
-    - (2,3]
-    - (3,4]
-    - >4
-    - NA
+      - "<=1"
+      - "(1,2]"
+      - "(2,3]"
+      - "(3,4]"
+      - ">4"
+      - NA
     Req: true
   histological_grade:
     Desc: Histologic Grade (as reported by local site)
     Src: Grade
     Type:
-    - Low
-    - Med
-    - High
-    - NA
+      - Low
+      - Med
+      - High
+      - NA
     Req: true
   nuclear_grade:
     Desc: Nuclear Grade (as reported by local site) [not used in publication]
     Src: NucGrade
     Type:
-    - Low
-    - Med
-    - High
-    - NA
+      - Low
+      - Med
+      - High
+      - NA
     Req: true
   estrogen_receptor_status:
     Desc: Estrogen Receptor Status
     Src: NucGrade
     Type:
-    - Neg
-    - Pos
-    - NA
+      - Neg
+      - Pos
+      - NA
     Req: true
   progesterone_receptor_status:
     Desc: Progesterone Receptor Status
     Src: PRStatus
     Type:
-    - Neg
-    - Pos
-    - NA
+      - Neg
+      - Pos
+      - NA
     Req: true
 # stratification props
   tumor_size_stratification:
@@ -186,9 +166,9 @@ PropDefinitions:
     Desc: Primary surgical procedure
     Src: PrimSurg
     Type:
-    - Mx
-    - Tx
-    - NA
+      - Mx
+      - Tx
+      - NA
     Req: true
   received_chemotherapy:
     Desc: Indicator of whether patients were treated with chemotherapy (cases with no follow-up data are coded as 0)
@@ -199,12 +179,12 @@ PropDefinitions:
     Desc: Chemotherapy regimen given (grouped as reported in manuscript)
     Src: ChemRegGp
     Type:
-    - 1CMF
-    - 2Anthracycline w/o Taxane
-    - 3Anthracycline and Taxane
-    - 4TC and variations
-    - 5Other or Not Specified
-    - 6None
+      - 1CMF
+      - 2Anthracycline w/o Taxane
+      - 3Anthracycline and Taxane
+      - 4TC and variations
+      - 5Other or Not Specified
+      - 6None
     # this is exactly how the values appear in the example data
     Req: true
   specific_chemotherapy_regimen_received:
@@ -216,26 +196,29 @@ PropDefinitions:
     Desc: Type of endocrine therapy
     Src: TypeEndocrine
     Type:
-     - AI
-     - OFS
-     - OFS & AI
-     - Tam
-     - Tam & AI
-     - Other
-     - None
+      - AI
+      - OFS
+      - "OFS & AI"
+      - Tam
+      - "Tam & AI"
+      - Other
+      - None
     Req: true
   time_to_first_endocrine_therapy:
-    Desc: Days from registration to first endocrine therapy (see notes)
+    Desc: |
+      Days from registration to first endocrine therapy (see notes)
     Src: ttfET
     Type: string
     Req: true
   time_to_last_endocrine_therapy:
-    Desc: Days from registration to last endocrine therapy (see notes)
+    Desc: |
+      Days from registration to last endocrine therapy (see notes)
     Src: ttlET
     Type: string
     Req: true
   duration_of_endocrine_therapy:
-    Desc: Duration of endocrine therapy (ttlET – ttfET)
+    Desc: |
+      Duration of endocrine therapy (ttlET – ttfET)
     Src: durET
     Type: string
     Req: true
@@ -316,9 +299,9 @@ PropDefinitions:
     Req: true
   distant_recurrence_interval:
     Desc: |
-      ?
+      What is?
     Src: |
-      ?
+      What is?
     Type: TBD
   name:
     Desc: Name of relevant item
