@@ -27,7 +27,7 @@ script:
   - cp ctn-model.yml ctn-model-props.yml ../docs/mdf
   - sed -ie '1,6d' update-model.svg
   - cp update-model.svg ../docs/mdf/ctn-model.svg
-  - rm -f update-model.svg
+  - rm -f update-model.*
   - popd
   - pushd docs
   - cp ./README.md.content ./README.md

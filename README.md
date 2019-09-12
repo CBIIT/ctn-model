@@ -2,6 +2,8 @@
 
 Location for Clinical Trial Node model description files and related artifacts
 
+Visit [Github Pages](https://cbiit.github.io/ctn-model/) to browse model graph.
+
 # Description
 
 This repo is a workspace for development of the data model for the [Cancer Research Data Commons](https://datascience.cancer.gov/data-commons) Clinical Trial Node. 
