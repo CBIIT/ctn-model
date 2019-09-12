@@ -1,0 +1,165 @@
+PropDefinitions:
+  aMOI:
+    Src: Matchbox
+    Type: TBD
+  adverse_event_attribution:
+    Type: TBD
+  allele_frequency:
+    Src: Matchbox
+    Type: number
+  alternative_allele:
+    Src: Matchbox
+    Type:
+      - /regexp_here/
+  arm_specific:
+    Src: Matchbox
+    Type: TBD
+  cds_alt:
+    Src: Matchbox
+    Type:
+      - /regexp_here/
+  cds_ref:
+    Src: Matchbox
+    Type:
+      - /regexp_here/
+  cellularity:
+    Src: Matchbox
+    Type: number
+  chromosome:
+    Src: Matchbox
+    Type: https://sts/property/chromosome
+  confidence_interval_05percent:
+    Src: Matchbox
+    Type: number
+  confidence_interval_95percent:
+    Src: Matchbox
+    Type: number
+  confirmed:
+    Src: Matchbox
+    Type: boolean
+  copy_number:
+    Src: Matchbox
+    Type: number
+  ctep_category:
+    Src: Matchbox
+    Type: https://sts/property/ctep_category
+  ctep_su_category:
+    Src: Matchbox
+    Type: https://sts/property/ctep_su_category
+  ctep_term:
+    Src: Matchbox
+    Type: https://sts/property/ctep_term
+  diagnosis_code:
+    Src: Matchbox
+    Type: https://sts/property/diagnosis_code
+  exon:
+    Src: Matchbox
+    Type:
+      - /regexp_here
+  function:
+    Src: Matchbox
+    Type:
+      - enum
+      - goes
+      - here
+  gene_name:
+    Src: Matchbox
+    Type:  https://sts/property/gene_name
+  hgvs:
+    Src: Matchbox
+    Type:
+      - /regexp here/
+  molecular_id:
+    Src: Matchbox
+    Type:
+      - /regexp here/
+  molecular_id_analysis_id:
+    Src: Matchbox
+    Type:
+      - /regexp here/
+  ocp_alt:
+    Src: Matchbox
+    Type: string
+  ocp_ref:
+    Src: Matchbox
+    Type: string
+  pathology_status_date:
+    Src: Matchbox
+    Type: datetime
+  position:
+    Src: Matchbox
+    Type:
+      - /regexp_here/
+  protein:
+    Src: Matchbox
+    Type:  https://sts/property/protein
+  raw_copy_number:
+    Src: Matchbox
+    Type: number
+  read_depth:
+    Src: Matchbox
+    Type: number
+  ref_copy_number:
+    Src: Matchbox
+    Type: number
+  genome_reference:
+    Src: Matchbox
+    Type: https://sts/property/genome_reference
+  status:
+    Src: Matchbox
+    Type:
+      - enum
+      - goes
+      - here
+  status_date:
+    Src: Matchbox
+    Type: datetime
+  strand:
+    Src: Matchbox
+    Type:
+      - plus
+      - minus
+  surgical_event_id:
+    Src: Matchbox
+    Type: TBD
+  total_amois:
+    Src: Matchbox
+    Type: number
+  total_confirmed_amois:
+    Src: Matchbox
+    Type: number
+  total_confirmed_mois:
+    Src: Matchbox
+    Type: number
+  total_mois:
+    Src: Matchbox
+    Type: number
+  total_variants:
+    Src: Matchbox
+    Type: number
+  transcript:
+    Src: Matchbox
+    Type:
+      - /regexp_here/
+  treatment_arm_version:
+    Src: Matchbox
+    Type: TBC
+  uuid:
+    Src: Matchbox
+    Type:
+      - /uuid_regexp_here/
+  variant_report_received_date:
+    Src: Matchbox
+    Type: datetime
+  variant_report_type:
+    Src: Matchbox
+    Type:
+      - enum
+      - goes
+      - here
+  variant_type:
+    Src: Matchbox
+    Type:
+      - enum
+      - goes
+      - here
