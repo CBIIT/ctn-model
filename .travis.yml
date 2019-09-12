@@ -36,7 +36,7 @@ script:
   - echo "</div>" >> ./README.md
   - popd
   - rm -rf __pycache__
-  - rm MDFValidate/*.pyc
+  - rm -f MDFValidate/*.pyc
 
   
 deploy:
