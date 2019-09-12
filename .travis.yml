@@ -14,7 +14,7 @@ branches:
   only:
     - master
 before_install:
-  - docker pull maj1/icdc:model-tool-app
+  - docker pull maj1/icdc:icdc-model-tool-app
 install:
   - pip install -r val/reqs.txt
 script:
@@ -23,7 +23,7 @@ script:
   - popd
   - pushd mdf
   # run prebuilt model-tool
-  - docker run --rm -it -v "$PWD":/opns/wrk -w /opn/wrk maj1/icdc:model-tool-app  -g update-model.svg ctn-model.yml ctn-model-props.yml
+  - docker run --rm -it -v "$PWD":/opns/wrk -w /opn/wrk maj1/icdc:icdc-model-tool-app  -g update-model.svg ctn-model.yml ctn-model-props.yml
   - cp icdc-model.yml icdc-model-props.yml ../docs/mdf
   - cp update-model.svg ../docs/model-desc/ctn-model.svg
   - rm -f update-model.svg
