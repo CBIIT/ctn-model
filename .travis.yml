@@ -32,7 +32,7 @@ script:
   - pushd docs
   - cp ./README.md.content ./README.md
   - echo "<div id='graph' style='display:off;'>" >> ./README.md
-  - cat ./model-desc/ctn-model.svg >> ./README.md
+  - cat ./mdf/ctn-model.svg >> ./README.md
   - echo "</div>" >> ./README.md
   - popd
   - rm -rf __pycache__

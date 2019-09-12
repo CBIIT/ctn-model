@@ -1,4 +1,5 @@
-# ctn-model
+# ctn-model [![Build Status](https://travis-ci.org/CBIIT/ctn-model.svg?branch=master)](https://travis-ci.org/CBIIT/ctn-model)
+
 Location for Clinical Trial Node model description files and related artifacts
 
 # Description

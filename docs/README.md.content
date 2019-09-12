@@ -9,6 +9,8 @@ Zoom to Node: <select id="node_select">
 </select>
 <div id="model"></div>
 
+<a href="./mdf">Model artifacts</a>
+
 # ctn-model
 Location for CRDC Clinical Trial Node model description files and related artifacts
 
