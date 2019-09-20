@@ -8,7 +8,8 @@ a {
 }
 
 #model {
-    height: 560px;
-    width: 800px;
+    height: 500px;
+    width: 750px;
+    
     border-style: double;
 }
